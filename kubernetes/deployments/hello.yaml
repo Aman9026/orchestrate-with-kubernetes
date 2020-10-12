@@ -1,24 +1,21 @@
-apiVersion: extensions/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: "hello"
-  template:selector:
-    matchLabels:
-      app: "hello"
+  template:
     metadata:
       labels:
         app: hello
         track: stable
-        version: 1.0.0
     spec:
       containers:
         - name: hello
-          image: "kelseyhightower/hello:1.0.0"
+          image: "udacity/example-hello:1.0.0"
           ports:
             - name: http
               containerPort: 80
