@@ -1,4 +1,4 @@
-apiVersion: extensions/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-canary
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: hello
-          image: kelseyhightower/hello:2.0.0
+          image: "kelseyhightower/hello:2.0.0"
           ports:
             - name: http
               containerPort: 80
@@ -25,7 +25,7 @@ spec:
           resources:
             limits:
               cpu: 0.2
-              memory: 10Mi
+              memory: "10Mi"
           livenessProbe:
             httpGet:
               path: /healthz
